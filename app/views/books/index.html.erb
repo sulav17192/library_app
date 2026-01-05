@@ -1,0 +1,9 @@
+<h1>Books</h1>
+<tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <%= book.title %><br>
+        <%= link_to "View Details", "/books/#{book.id}" %>
+      </tr> <br>
+    <% end %>
+  </tbody>
