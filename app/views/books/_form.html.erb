@@ -1,0 +1,12 @@
+<%= form_with model: @book do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <%= form.label :author %>
+  <%= form.text_field :author %>
+
+  <%= form.label :rating %>
+  <%= form.number_field :rating %>
+
+  <%= form.submit %>
+<% end %>

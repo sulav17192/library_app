@@ -3,18 +3,7 @@
 <%= link_to "Add New Book", "/books/new", style: "font-size: 18px; margin-bottom: 20px; display: inline-block;" %>
 <br><br>
 
-<%= form_with model: @book do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-
-  <%= form.label :author %>
-  <%= form.text_field :author %>
-
-  <%= form.label :rating %>
-  <%= form.number_field :rating %>
-
-  <%= form.submit %>
-<% end %>
+<%= render "form" %>
 
 
 <br>
