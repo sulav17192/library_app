@@ -1,10 +1,9 @@
 <h1>Add a New Book</h1>
 
-<%= link_to "Add New Book", "/books/new", style: "font-size: 18px; margin-bottom: 20px; display: inline-block;" %>
+<%= link_to "Add New Book", new_library_book_path, style: "font-size: 18px; margin-bottom: 20px; display: inline-block;" %>
 <br><br>
 
 <%= render "form" %>
 
-
 <br>
-<%= link_to "← Back to All Books", "/books" %>
+<%= link_to "← Back to All Books", library_books_path %>

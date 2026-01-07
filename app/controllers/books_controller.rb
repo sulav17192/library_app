@@ -15,7 +15,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to '/books' 
+      redirect_to library_books_path
     else
       render :new  
     end
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
     @book= Book.find(params[:id])
 
     if @book.update(book_params)
-      redirect_to '/books'
+      redirect_to library_books_path
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
     @book= Book.find(params[:id])
     @book.destroy
 
-    redirect_to '/books'
+    redirect_to library_books_path
   end
 
 

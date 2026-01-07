@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
-  get '/books/new', to: 'books#new'
-  post '/books', to: 'books#create'
+  root "books#index"
 
-  get 'books', to: 'books#index'
-  get 'books/:id', to: 'books#show'
+ # Books collection routes
+  get    '/books', to: 'books#index', as: :library_books
+  get    '/books/new', to: 'books#new', as: :new_library_book
+  post   '/books', to: 'books#create'
 
-  get '/books/:id/edit', to: 'books#edit'
-  patch '/books/:id', to: 'books#update'
-
+  # Individual book routes
+  get    '/books/:id', to: 'books#show', as: :library_book
+  get    '/books/:id/edit', to: 'books#edit', as: :edit_library_book
+  patch  '/books/:id', to: 'books#update'
   delete '/books/:id', to: 'books#destroy'
 
 
