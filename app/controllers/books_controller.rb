@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  include BooksHelper
   def index
     @books = Book.all
   end
@@ -15,7 +16,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      flash[:notice] = "Book created successfully"
+      flash[:notice] = "We have added a new #{formatted_author(@book)}!"
       redirect_to library_books_path
     else
       render :new  
@@ -30,7 +31,7 @@ class BooksController < ApplicationController
     @book= Book.find(params[:id])
 
     if @book.update(book_params)
-      flash[:notice] = "Book updated successfully"
+      flash[:notice] = "Updated #{formatted_author(@book)} successfully!"
       redirect_to library_books_path
     else
       render :edit
