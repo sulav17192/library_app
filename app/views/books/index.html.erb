@@ -12,7 +12,7 @@
     <% @books.each do |book| %>
       <tr>
         <td><strong><%= link_to book.title, library_book_path(book) %></strong></td>
-        <td><%= book.author %></td>
+        <td><%= formatted_author(book) %></td>
         <td><%= book.rating %></td>
         <td>
           <%= link_to "View", library_book_path(book) %>
