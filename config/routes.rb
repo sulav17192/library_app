@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   patch  '/books/:id', to: 'books#update'
   delete '/books/:id', to: 'books#destroy'
 
+  get '/checkout', to: 'checkouts#new', as: :checkout
+  post '/checkout', to: 'checkouts#create'
+
+  get '/rentals/history', to: 'rentals#history', as: :rentals_history
+
 
 
 
