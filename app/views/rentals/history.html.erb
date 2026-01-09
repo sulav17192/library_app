@@ -1,26 +1,19 @@
 <h1 class="mb-5">Rental History</h1>
 
-<!-- Simple form -->
-<%= form_with url: rentals_history_path, method: :get, local: true do |f| %>
-  <p>
-    <%= f.label :customer_id, "Select a customer:" %>
-    <%= f.select :customer_id,
+<p>
+  <%= label_tag :customer_id, "Select a customer:" %>
+  <%= select_tag :customer_id,
                  options_from_collection_for_select(@customers, :id, :name, params[:customer_id]),
-                 { include_blank: "— Choose one —" },
-                 class: "form-select" %>
-  </p>
+                 prompt: "— Choose a customer —",
+                 class: "form-select",
+                 onchange: "window.location = '?customer_id=' + this.value" %>
+</p>
 
-  <p>
-    <%= f.submit "Show History", class: "btn btn-primary" %>
-  </p>
-<% end %>
-
-<!-- Results -->
 <% if @selected_customer %>
   <h3><%= @selected_customer.name %> (<%= @selected_customer.email %>)</h3>
 
   <% if @rentals.any? %>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Book</th>
@@ -42,7 +35,7 @@
     <p>No rentals yet for this customer.</p>
   <% end %>
 <% else %>
-  <p>Please select a customer to see their history.</p>
+  <p>Please select a customer above to see their rental history.</p>
 <% end %>
 
 <br>

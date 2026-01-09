@@ -33,7 +33,7 @@ class CheckoutService
     if @customer.nil?
       @customer = Customer.new(
         email: @customer_email,
-        name: @customer_email.split("@").first
+        name: @customer_email.split("@").first.titleize
       )
 
       unless @customer.save

@@ -14,9 +14,9 @@ class CheckoutsController < ApplicationController
     end
   end
 
-  private
+ private
 
-  def checkout_params
-    params.require(:checkout).permit(:book_id, :customer_email, :rented_on, :returned_on)
-  end
+def checkout_params
+  params.permit(:book_id, :customer_email, :rented_on, :returned_on)
+end
 end

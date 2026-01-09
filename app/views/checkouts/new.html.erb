@@ -2,7 +2,7 @@
 
 <!-- Your flash alerts here if you have them -->
 
-<%= form_with model: @checkout, url: checkout_path, local: true do |f| %>
+<%= form_with url: checkout_path, local: true do |f| %>
 
   <div class="mb-3">
     <%= f.label :book_id, "Select Book", class: "form-label" %>
