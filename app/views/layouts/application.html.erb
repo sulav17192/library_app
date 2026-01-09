@@ -34,12 +34,12 @@
               <%= link_to "All Books", library_books_path,
                           class: "nav-link #{'active fw-bold' if request.path == library_books_path}" %>
             </li>
+            <li class="nav-item">
+  <%= link_to "Rental History", rentals_history_path, class: "nav-link" %>
+</li>
           </ul>
         </div>
       </div>
-      <li class="nav-item">
-  <%= link_to "Rental History", rentals_history_path, class: "nav-link" %>
-</li>
     </nav>
 
     <!-- Main content -->
