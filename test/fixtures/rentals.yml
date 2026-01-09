@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  book: one
+  rented_on: 2026-01-09
+  returned_on: 2026-01-09
+
+two:
+  customer: two
+  book: two
+  rented_on: 2026-01-09
+  returned_on: 2026-01-09
