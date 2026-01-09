@@ -1,0 +1,49 @@
+<h1 class="mb-5">Rental History</h1>
+
+<!-- Simple form -->
+<%= form_with url: rentals_history_path, method: :get, local: true do |f| %>
+  <p>
+    <%= f.label :customer_id, "Select a customer:" %>
+    <%= f.select :customer_id,
+                 options_from_collection_for_select(@customers, :id, :name, params[:customer_id]),
+                 { include_blank: "— Choose one —" },
+                 class: "form-select" %>
+  </p>
+
+  <p>
+    <%= f.submit "Show History", class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+<!-- Results -->
+<% if @selected_customer %>
+  <h3><%= @selected_customer.name %> (<%= @selected_customer.email %>)</h3>
+
+  <% if @rentals.any? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Book</th>
+          <th>Rented On</th>
+          <th>Expected Return</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rentals.each do |rental| %>
+          <tr>
+            <td><%= rental.book.title %></td>
+            <td><%= rental.rented_on&.strftime("%B %d, %Y") %></td>
+            <td><%= rental.returned_on&.strftime("%B %d, %Y") || "Not set" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No rentals yet for this customer.</p>
+  <% end %>
+<% else %>
+  <p>Please select a customer to see their history.</p>
+<% end %>
+
+<br>
+<%= link_to "← Back to Books", library_books_path, class: "btn btn-secondary" %>
