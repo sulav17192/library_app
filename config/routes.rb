@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "checkouts/new"
+  get "checkouts/create"
 
   root "books#index"
 
